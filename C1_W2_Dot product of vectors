@@ -1,0 +1,514 @@
+Dot product of vectors
+Total points 6
+1.
+Question 1
+As we have seen in the lecture videos, the dot product of vectors has a lot of applications. Here, you will complete some exercises involving the dot product.
+
+We have seen that the size of a vector with two components is calculated using Pythagoras' theorem, for example the following diagram shows how we calculate the size of the orange vector \mathbf{r} = 
+[r1r2]
+ r=[ 
+r 
+1
+​
+ 
+r 
+2
+​
+ 
+​
+ ]:
+
+
+In fact, this definition can be extended to any number of dimensions; the size of a vector is the square root of the sum of the squares of its components. Using this information, what is the size of the vector \mathbf{s} = 
+⎡⎣⎢⎢1342⎤⎦⎥⎥
+s= 
+⎣
+⎢
+⎢
+⎢
+⎡
+​
+  
+1
+3
+4
+2
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎤
+​
+ ?
+
+
+1 / 1 point
+
+|\mathbf{s}| = 10∣s∣=10
+
+
+
+|\mathbf{s}| = \sqrt{30}∣s∣= 
+30
+​
+ 
+
+
+
+|\mathbf{s}| = 30∣s∣=30
+
+
+
+|\mathbf{s}| = \sqrt{10}∣s∣= 
+10
+​
+ 
+
+
+Correct
+The size of the vector is the square root of the sum of the squares of the components.  
+
+2.
+Question 2
+Remember the definition of the dot product from the videos. For two nn component vectors, \mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 + \dots + a_nb_na⋅b=a 
+1
+​
+ b 
+1
+​
+ +a 
+2
+​
+ b 
+2
+​
+ +⋯+a 
+n
+​
+ b 
+n
+​
+ .
+
+What is the dot product of the vectors \mathbf{r} = 
+⎡⎣⎢⎢−5328⎤⎦⎥⎥
+r= 
+⎣
+⎢
+⎢
+⎢
+⎡
+​
+  
+−5
+3
+2
+8
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎤
+​
+  and \mathbf{s} = 
+⎡⎣⎢⎢12−10⎤⎦⎥⎥
+s= 
+⎣
+⎢
+⎢
+⎢
+⎡
+​
+  
+1
+2
+−1
+0
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎤
+​
+ ?
+
+
+1 / 1 point
+
+\mathbf{r}\cdot\mathbf{s} = -1r⋅s=−1
+
+
+
+\mathbf{r}\cdot\mathbf{s} = 1r⋅s=1
+
+
+
+  \mathbf{r}\cdot\mathbf{s} =  
+⎡⎣⎢⎢−56−20⎤⎦⎥⎥
+r⋅s= 
+⎣
+⎢
+⎢
+⎢
+⎡
+​
+  
+−5
+6
+−2
+0
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎤
+​
+ 
+
+
+
+\mathbf{r}\cdot\mathbf{s} = 
+⎡⎣⎢⎢−4519⎤⎦⎥⎥
+r⋅s= 
+⎣
+⎢
+⎢
+⎢
+⎡
+​
+  
+−4
+5
+1
+9
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎤
+​
+ 
+
+
+Correct
+The dot product of two vectors is the total of the component-wise products.  
+
+3.
+Question 3
+The lectures introduced the idea of projecting one vector onto another. The following diagram shows the projection of \mathbf{s}s onto \mathbf{r}r when the vectors are in two dimensions:
+
+
+Remember that the scalar projection is the size of the green vector. If the angle between \mathbf{s}s and \mathbf{r}r is greater than \pi/2π/2, the projection will also have a minus sign.
+
+We can do projection in any number of dimensions. Consider two vectors with three components, \mathbf{r} = 
+⎡⎣3−40⎤⎦
+r= 
+⎣
+⎢
+⎡
+​
+  
+3
+−4
+0
+​
+  
+⎦
+⎥
+⎤
+​
+  and  \mathbf{s} = 
+⎡⎣105−6⎤⎦
+s= 
+⎣
+⎢
+⎡
+​
+  
+10
+5
+−6
+​
+  
+⎦
+⎥
+⎤
+​
+ .
+
+What is the scalar projection of \mathbf{s}s onto \mathbf{r}r?
+
+
+1 / 1 point
+
+22
+
+
+
+-2−2
+
+
+
+  -\frac{1}{2}− 
+2
+1
+​
+   
+
+
+
+\frac{1}{2} 
+2
+1
+​
+ 
+
+
+Correct
+The scalar projection of of \mathbf{s}s onto \mathbf{r}r can be calculated with the formula \frac{\mathbf{s}\cdot \mathbf{r}}{|\mathbf{r}|} 
+∣r∣
+s⋅r
+​
+ 
+
+4.
+Question 4
+Remember that in the projection diagram, the vector projection is the green vector:
+
+
+Let \mathbf{r} = 
+⎡⎣3−40⎤⎦
+r= 
+⎣
+⎢
+⎡
+​
+  
+3
+−4
+0
+​
+  
+⎦
+⎥
+⎤
+​
+  and let \mathbf{s} = 
+⎡⎣105−6⎤⎦
+s= 
+⎣
+⎢
+⎡
+​
+  
+10
+5
+−6
+​
+  
+⎦
+⎥
+⎤
+​
+ .
+
+What is the vector projection of \mathbf{s}s onto \mathbf{r}r?
+
+
+1 / 1 point
+
+⎡⎣6−80⎤⎦
+⎣
+⎢
+⎡
+​
+  
+6
+−8
+0
+​
+  
+⎦
+⎥
+⎤
+​
+ 
+
+
+
+  
+⎡⎣30−200⎤⎦
+⎣
+⎢
+⎡
+​
+  
+30
+−20
+0
+​
+  
+⎦
+⎥
+⎤
+​
+   
+
+
+
+  
+⎡⎣⎢6/5−8/50⎤⎦⎥
+⎣
+⎢
+⎡
+​
+  
+6/5
+−8/5
+0
+​
+  
+⎦
+⎥
+⎤
+​
+ 
+
+
+
+  
+⎡⎣640⎤⎦
+⎣
+⎢
+⎡
+​
+  
+6
+4
+0
+​
+  
+⎦
+⎥
+⎤
+​
+   
+
+
+Correct
+The vector projection of \mathbf{s}s onto \mathbf{r}r can be calculated with the formula \frac{\mathbf{s}\cdot \mathbf{r}}{\mathbf{r}\cdot \mathbf{r}}\mathbf{r} 
+r⋅r
+s⋅r
+​
+ r.
+
+5.
+Question 5
+Let \mathbf{a} = 
+⎡⎣304⎤⎦
+a= 
+⎣
+⎢
+⎡
+​
+  
+3
+0
+4
+​
+  
+⎦
+⎥
+⎤
+​
+  and \mathbf{b} = 
+⎡⎣0512⎤⎦
+b= 
+⎣
+⎢
+⎡
+​
+  
+0
+5
+12
+​
+  
+⎦
+⎥
+⎤
+​
+ .
+
+Which is larger, |\mathbf{a} + \mathbf{b}|∣a+b∣ or |\mathbf{a}| + |\mathbf{b}|∣a∣+∣b∣?
+
+
+1 / 1 point
+
+  |\mathbf{a} + \mathbf{b}| = |\mathbf{a}| + |\mathbf{b}|∣a+b∣=∣a∣+∣b∣  
+
+
+
+    |\mathbf{a} + \mathbf{b}| > |\mathbf{a}| + |\mathbf{b}|∣a+b∣>∣a∣+∣b∣    
+
+
+
+  |\mathbf{a} + \mathbf{b}|<|\mathbf{a}| + |\mathbf{b}|∣a+b∣<∣a∣+∣b∣
+
+
+Correct
+In fact, it has been shown that |\mathbf{a} + \mathbf{b}| \leq |\mathbf{a}| + |\mathbf{b}|∣a+b∣≤∣a∣+∣b∣  for every pair of vectors \mathbf{a}a and \mathbf{b}b. This is called the triangle inequality; try to think about it in the 2d case and see if you can understand why.
+
+6.
+Question 6
+Which of the following statements about dot products are correct?
+
+
+1 / 1 point
+
+The order of vectors in the dot product is important, so that \mathbf{s}\cdot\mathbf{r} \neq \mathbf{r}\cdot \mathbf{s}s⋅r 
+
+​
+ =r⋅s.
+
+
+
+We can find the angle between two vectors using the dot product.
+
+
+Correct
+We saw in the lectures that \mathbf{r}\cdot\mathbf{s} = |\mathbf{r}||\mathbf{s}|\cos{\theta}r⋅s=∣r∣∣s∣cosθ, where \thetaθ is the angle between the vectors. This can then be used to find \thetaθ.
+
+
+The vector projection of \mathbf{s}s onto \mathbf{r}r is equal to the scalar projection of \mathbf{s}s onto \mathbf{r}r multiplied by a vector of unit length that points in the same direction as \mathbf{r}r.
+
+
+Correct
+The vector projection is equal to the scalar projection multiplied by \frac{\mathbf{r}}{|\mathbf{r}|} 
+∣r∣
+r
+​
+ .
+
+
+The size of a vector is equal to the square root of the dot product of the vector with itself.
+
+
+Correct
+We saw in the video lectures that |\mathbf{r}| = \sqrt{\mathbf{r}\cdot\mathbf{r}}∣r∣= 
+r⋅r
+​
+ .
+
+
+The scalar projection of \mathbf{s}s onto \mathbf{r}r is always the same as the scalar projection of \mathbf{r}r onto \mathbf{s}s.
