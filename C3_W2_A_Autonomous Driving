@@ -1,0 +1,390 @@
+Autonomous Driving (Case Study)
+Latest Submission Grade 93.33%
+1.
+Question 1
+To help you practice strategies for machine learning, this week we’ll present another scenario and ask how you would act. We think this “simulator” of working in a machine learning project will give you an idea of what leading a machine learning project could be like!
+
+You are employed by a startup building self-driving cars. You are in charge of detecting road signs (stop sign, pedestrian crossing sign, construction ahead sign) and traffic signals (red and green lights) in images. The goal is to recognize which of these objects appear in each image. As an example, this image contains a pedestrian crossing sign and red traffic lights.
+
+
+Your 100,000 labeled images are taken using the front-facing camera of your car. This is also the distribution of data you care most about doing well on. You think you might be able to get a much larger dataset off the internet, which could be helpful for training even if the distribution of internet data is not the same. 
+
+Suppose that you came from working with a project for human detection in city parks, so you know that detecting humans in diverse environments can be a difficult problem. What is the first thing you do? Assume each of the steps below would take about an equal amount of time (a few days).
+
+Start by solving pedestrian detection, since you already have the experience to do this.
+Leave aside the pedestrian detection, to move faster and then later solve the pedestrian problem alone.
+Spend a few days collecting more data to determine how hard it will be to include more pedestrians in your dataset.
+Train a basic model and proceed with error analysis.
+
+
+As discussed in the lecture, it is better to create your first system quickly and then iterate.
+
+2.
+Question 2
+Your goal is to detect road signs (stop sign, pedestrian crossing sign, construction ahead sign) and traffic signals (red and green lights) in images. The goal is to recognize which of these objects appear in each image. You plan to use a deep neural network with ReLU units in the hidden layers.
+
+For the output layer, a softmax activation would be a good choice for the output layer because this is a multi-task learning problem. True/False?
+
+True
+False
+
+
+Softmax would be a good choice if one and only one of the possibilities (stop sign, speed bump, pedestrian crossing, green light and red light) was present in each image.
+
+3.
+Question 3
+When trying to determine what strategy to implement to improve the performance of a model, we manually check all images of the training set where the algorithm was successful. True/False?
+
+True
+False
+
+This set should be too large to manually check all the images. It is better to focus on the images that the algorithm got wrong from the dev set. Also, choose a large enough subset that we can manually check.
+
+4.
+Question 4
+After working on the data for several weeks, your team ends up with the following data:
+
+100,000 labeled images taken using the front-facing camera of your car.
+
+900,000 labeled images of roads downloaded from the internet.
+
+Each image’s labels precisely indicate the presence of any specific road signs and traffic signals or combinations of them. For example, y^{(i)} = 
+⎡⎣⎢⎢⎢⎢10010⎤⎦⎥⎥⎥⎥
+y 
+(i)
+ = 
+⎣
+⎢
+⎢
+⎢
+⎢
+⎢
+⎡
+​
+  
+1
+0
+0
+1
+0
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎥
+⎥
+⎤
+​
+  means the image contains a stop sign and a red traffic light.
+
+When using a non fully labeled image such as y^{(i)} = 
+⎡⎣⎢⎢⎢⎢0?1?1⎤⎦⎥⎥⎥⎥
+y 
+(i)
+ = 
+⎣
+⎢
+⎢
+⎢
+⎢
+⎢
+⎡
+​
+  
+0
+?
+1
+?
+1
+​
+  
+⎦
+⎥
+⎥
+⎥
+⎥
+⎥
+⎤
+​
+ , which of the following strategies is most appropriate to calculate the loss function to train as a multi-task learning problem?
+
+
+1 / 1 point
+
+It is not possible to use non fully labeled images if we train as a multi-task learning problem.
+
+
+
+Make the missing entries equal to 1.
+Make the missing entries equal to 0.
+
+Calculate the loss as \sum \mathcal{L}(\hat{y}^{(i)}_j, y^{(i)}_j)∑L( 
+y
+^
+​
+  
+j
+(i)
+​
+ ,y 
+j
+(i)
+​
+ ) where the sum goes over all the know components of y^{(i)}y 
+(i)
+ .
+
+
+Correct
+Correct. We can't use the components of the labels that are missing but we can use the ones we have to train the model.
+
+5.
+Question 5
+The distribution of data you care about contains images from your car’s front-facing camera, which comes from a different distribution than the images you were able to find and download off the internet. The best way to split the data is using the 900,000 internet images to train, and divide the 100,000 images from your car's front-facing camera between dev and test sets. True/False?
+
+
+1 / 1 point
+
+True
+False
+
+100,000 images are too many to use in dev and test. A better distribution would be to use 80,000 of those images to train, and split the rest between dev and test.
+
+6.
+Question 6
+Assume you’ve finally chosen the following split between the data:
+
+Dataset:
+
+Contains:
+
+Error of the algorithm:
+
+Training
+
+940,000 images randomly picked from (900,000 internet images + 60,000 car’s front-facing camera images)
+
+12%
+
+Training-Dev
+
+20,000 images randomly picked from (900,000 internet images + 60,000 car’s front-facing camera images)
+
+15.1%
+
+Dev
+
+20,000 images from your car’s front-facing camera
+
+12.6%
+
+Test
+
+20,000 images from the car’s front-facing camera
+
+15.8%
+
+You also know that human-level error on the road sign and traffic signals classification task is around 0.5%. Which of the following is True?
+
+
+1 / 1 point
+
+You have a high bias.
+You have a high variance problem.
+You have a large data-mismatch problem.
+You have a too low avoidable bias.
+
+The avoidable bias is significantly high since the training error is a lot higher than the human-level error.
+
+7.
+Question 7
+Assume you’ve finally chosen the following split between the data:
+
+Dataset:
+Contains:
+Error of the algorithm:
+Training
+940,000 images randomly picked from (900,000 internet images + 60,000 car’s front-facing camera images)
+
+8.8%
+
+Training-Dev
+20,000 images randomly picked from (900,000 internet images + 60,000 car’s front-facing camera images)
+
+9.1%
+Dev
+20,000 images from your car’s front-facing camera
+
+14.3%
+
+Test
+
+20,000 images from the car’s front-facing camera
+
+14.8%
+
+You also know that human-level error on the road sign and traffic signals classification task is around 0.5%. Based on the information given, a friend thinks that the training data distribution is much easier than the dev/test distribution. What do you think?
+
+
+1 / 1 point
+
+There’s insufficient information to tell if your friend is right or wrong.
+
+Your friend is right. (I.e., Bayes error for the training data distribution is probably lower than for the dev/test distribution.)
+Your friend is wrong. (I.e., Bayes error for the training data distribution is probably higher than for the dev/test distribution.)
+
+
+The algorithm does better on the distribution of data it trained on. But you don’t know if it’s because it trained on that distribution or if it really is easier. To get a better sense, measure human-level error separately on both distributions. 
+
+8.
+Question 8
+You decide to focus on the dev set and check by hand what are the errors due to. Here is a table summarizing your discoveries: 
+
+Overall dev set error
+
+15.3%
+
+Errors due to incorrectly labeled data
+
+4.1% 
+
+Errors due to foggy pictures
+
+8.0%
+
+Errors due to rain drops stuck on your car’s front-facing camera
+
+2.2%
+
+Errors due to other causes
+
+1.0%
+
+In this table, 4.1%, 8.0%, etc. are a fraction of the total dev set (not just examples of your algorithm mislabeled). For example, about 8.0/15.3 = 52% of your errors are due to foggy pictures.
+
+The results from this analysis implies that the team’s highest priority should be to bring more foggy pictures into the training set so as to address the 8.0% of errors in that category. True/False?
+
+Additional note: there are subtle concepts to consider with this question, and you may find arguments for why some answers are also correct or incorrect. We recommend that you spend time reading the feedback for this quiz, to understand what issues that you will want to consider when you are building your own machine learning project. 
+
+
+1 / 1 point
+
+True because it is greater than the other error categories added together (8.0 > 4.1+2.2+1.0).
+First start with the sources of error that are least costly to fix.
+True because it is the largest category of errors. We should always prioritize the largest category of errors as this will make the best use of the team's time.
+False because it depends on how easy it is to add foggy data. If foggy data is very hard and costly to collect, it might not be worth the team’s effort.
+
+This is the correct answer. You should consider the tradeoff between the data accessibility and potential improvement of your model trained on this additional data.
+
+9.
+Question 9
+You decide to focus on the dev set and check by hand what the errors are due to. Here is a table summarizing your discoveries: 
+
+Overall dev set error
+15.3%
+
+Errors due to incorrectly labeled data
+4.1% 
+Errors due to foggy pictures
+3.0%
+Errors due to partially occluded elements.
+
+7.2%
+
+Errors due to other causes
+
+1.0%
+
+In this table, 4.1%, 7.2%, etc. are a fraction of the total dev set (not just examples of your algorithm mislabeled). For example, about 7.2/15.3 = 47% of your errors are due to partially occluded elements.
+
+You find out that there is an anti-reflective film guarantee to eliminate the sun reflection, but it is quite costly. Which of the following gives the best description of what the investment in the film can do to the model?
+
+
+1 / 1 point
+
+The overall test set error will be reduced by at most 7.2%.
+The film will reduce the dev set error with 7.2% at the most.
+The film will reduce at least 7.2% of the dev set error.
+
+Yes. Remember that this 7.2% gives us an estimate for the ceiling of how much the error can be reduced when the cause is fixed.
+
+10.
+Question 10
+You decide to use data augmentation to address foggy images. You find 1,000 pictures of fog off the internet, and “add” them to clean images to synthesize foggy days, like this:
+
+Which of the following do you agree with?
+
+If used, the synthetic data should be added to the training/dev/test sets in equal proportions.
+With this technique, we duplicate the size of the training set by synthesizing a new foggy image for each image in the training set.
+
+It is irrelevant how the resulting foggy images are perceived by the human eye, the most important thing is that they are correctly synthesized.
+
+If used, the synthetic data should be added to the training set. 
+
+Yes. The synthetic data can help to train the model to get better performance at the dev set, but shouldn't be added to the dev or test sets because they don't represent our target in a completely accurate way.
+
+11.
+Question 11
+After working further on the problem, you’ve decided to correct the incorrectly labeled data on the dev set. Which of these statements do you agree with? (Check all that apply).
+
+
+You do not necessarily need to fix the incorrectly labeled data in the training set, because it's okay for the training set distribution to differ from the dev and test sets. Note that it is important that the dev set and test set have the same distribution.
+
+True, deep learning algorithms are quite robust to having slightly different train and dev distributions. 
+You should correct incorrectly labeled data in the training set as well so as to avoid your training set now being even more different from your dev set.
+You should not correct the incorrectly labeled data in the test set, so that the dev and test sets continue to come from the same distribution.
+
+You should also correct the incorrectly labeled data in the test set, so that the dev and test sets continue to come from the same distribution.
+
+Yes because you want to make sure that your dev and test data come from the same distribution for your algorithm to make your team’s iterative development process efficient.
+
+12.
+Question 12
+So far your algorithm only recognizes red and green traffic lights. One of your colleagues in the startup is starting to work on recognizing a yellow traffic light. (Some countries call it an orange light rather than a yellow light; we’ll use the US convention of calling it yellow.) Images containing yellow lights are quite rare, and she doesn’t have enough data to build a good model. She hopes you can help her out using transfer learning.
+
+What do you tell your colleague? 
+
+
+1 / 1 point
+
+You cannot help her because the distribution of data you have is different from hers, and is also lacking the yellow label. 
+If she has (say) 10,000 images of yellow lights, randomly sample 10,000 images from your dataset and put your and her data together. This prevents your dataset from “swamping” the yellow lights dataset. 
+Recommend that she try multi-task learning instead of transfer learning using all the data.
+She should try using weights pre-trained on your dataset, and fine-tuning further with the yellow-light dataset.
+Yes. You have trained your model on a huge dataset, and she has a small dataset. Although your labels are different, the parameters of your model have been trained to recognize many characteristics of road and traffic images which will be useful for her problem. This is a perfect case for transfer learning, she can start with a model with the same architecture as yours, change what is after the last hidden layer and initialize it with your trained parameters.
+
+13.
+Question 13
+One of your colleagues at the startup is starting a project to classify stop signs in the road as speed limit signs or not. He has approximately 30,000 examples of each image and 30,000 images without a sign. He thought of using your model and applying transfer learning but then he noticed that you use multi-task learning, hence he can't use your model. True/False?
+
+False
+True
+
+When using transfer learning we can remove the last layer, which is one of the aspects that is different from a binary classification problem.
+
+14.
+Question 14
+When building a system to detect cattle crossing a road from images taken with the front-facing camera of a truck, the designers had a large dataset of images. Which of the following might be a reason to use an end-to-end approach?
+
+
+1 / 1 point
+
+That is the default approach on computer vision tasks.
+This approach will make use of useful hand-designed components.
+There is a large dataset available.
+It requires less computational resources.
+
+To get good results when using an end-to-end approach, it is necessary to have a big dataset.
+
+15.
+Question 15
+Approach A (in the question above) tends to be more promising than approach B if you have a ________ (fill in the blank).
+
+Multi-task learning problem.
+Large bias problem.
+Problem with a high Bayes error. 
+Large training set
+
+ In many fields, it has been observed that end-to-end learning works better in practice, but requires a large amount of data.
